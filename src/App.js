@@ -70,7 +70,7 @@ class App extends Component {
     // };
 
     let persons = null;
-    let buttonClasses = [classes.Button];
+    let buttonClass = '';
 
     if (this.state.showPersons) {
       persons = (
@@ -93,7 +93,7 @@ class App extends Component {
       //   color: 'black'
       // }
 
-      buttonClasses.push(classes.Red)
+      buttonClass = classes.Red;
     }
     
     const personsLength = this.state.persons.length
@@ -116,7 +116,7 @@ class App extends Component {
             Toggle Persons
         </StyledButton> */}
         <button
-          className={buttonClasses.join(' ')}
+          className={buttonClass}
           onClick={this.togglePersonsHandler}>
             Toggle Persons
         </button>
