@@ -26,12 +26,6 @@ const person = (props) => {
     //     }
     // }
 
-    const randomGenerator = Math.random();
-
-    if (randomGenerator > 0.7) {
-        throw new Error('Something went wrong')
-    }
-
     return (
 
         // <div className="Person" style={style}>
