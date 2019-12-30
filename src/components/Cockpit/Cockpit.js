@@ -12,11 +12,11 @@ const cockpit = (props) => {
     }
     
     if ( personsLength <= 2 ) {
-        assignedClasses.push('red');
+        assignedClasses.push(classes.red);
     }
 
     if ( personsLength <= 1 ) {
-        assignedClasses.push('bold');
+        assignedClasses.push(classes.bold);
     }
 
     return (
