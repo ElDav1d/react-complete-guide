@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 // import styled from 'styled-components';
 import classes from './App.css';
 import Person from '../components/Persons/Person/Person';
-import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
 
 // const StyledButton = styled.button `
 //   background-color: ${ props => props.personsAreShown ? 'red' : 'green' };
