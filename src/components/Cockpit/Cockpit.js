@@ -9,7 +9,17 @@ const cockpit = (props) => {
         setTimeout(() => {
             alert('Saved data to cloud!!')
         }, 1000);
+        return () => {
+            console.log('[Cockpit.js cleanup in useEffect]')
+        }
     }, []);
+
+    useEffect(() => {
+        console.log('[Cockpit.js 2nd useEffect]')
+        return () => {
+            console.log('[Cockpit.js cleanup in 2nd useEffect]')
+        }
+    });
     
     const personsLength = props.persons.length;
     const assignedClasses = [];
