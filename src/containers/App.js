@@ -1,20 +1,6 @@
 import React, { Component } from 'react';
-// import styled from 'styled-components';
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
-
-// const StyledButton = styled.button `
-//   background-color: ${ props => props.personsAreShown ? 'red' : 'green' };
-//   color: white;
-//   font: inherit;
-//   border: 1x solid blue;
-//   padding: 8px;
-//   cursor: pointer;
-
-//   &:hover {
-//     background-Color: ${ props => props.personsAreShown ? 'salmon' : 'lightgreen' };
-//     color: black;
-// `;
 
 class App extends Component {
   state = {
@@ -56,19 +42,6 @@ class App extends Component {
   }
 
   render() {
-    // const style = {
-    //   backgroundColor: 'green',
-    //   color: 'white',
-    //   font: 'inherit',
-    //   border: '1x solid blue',
-    //   padding: '8px',
-    //   cursor: 'pointer',
-    //   ':hover': {
-    //     backgroundColor: 'lightgreen',
-    //     color: 'black'
-    //   }
-    // };
-
     let persons = null;
     let buttonClass = '';
 
@@ -82,34 +55,24 @@ class App extends Component {
         </div>
       );
 
-      // style.backgroundColor = 'red';
-      // style[':hover'] = {
-      //   backgroundColor: 'salmon',
-      //   color: 'black'
-      // }
-
       buttonClass = classes.Red;
     }
     
     const personsLength = this.state.persons.length
     const assignedClasses = []
 
+    // TODO: maybe debug this dinamic styling
     if (personsLength <= 2) {
-      assignedClasses.push('red'); // assignedClasses = ['red']
+      assignedClasses.push('red');
     }
     if (personsLength <= 1) {
-      assignedClasses.push('bold'); // assignedClasses = ['red', 'bold']
+      assignedClasses.push('bold');
     }
 
     return (
       <div className={classes.App}>
         <h1>Hi, I'm a React App</h1>
         <p className={assignedClasses.join(' ')}>This is really working!</p>
-        {/* <StyledButton // style={style}
-          personsAreShown={this.state.showPersons}
-          onClick={this.togglePersonsHandler}>
-            Toggle Persons
-        </StyledButton> */}
         <button
           className={buttonClass}
           onClick={this.togglePersonsHandler}>
