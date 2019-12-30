@@ -5,9 +5,12 @@ import classes from './Cockpit.css'
 const cockpit = (props) => {
     useEffect(() => {
         console.log('[Cockpit.js useEffect]')
-    });
+        //Faking Http request
+        setTimeout(() => {
+            alert('Saved data to cloud!!')
+        }, 1000);
+    }, [props.persons]);
     
-
     const personsLength = props.persons.length;
     const assignedClasses = [];
     let buttonClass = '';
