@@ -4,7 +4,15 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log('[App.js] constructor');
+  }
+
   state = {
+    // This is new syntax
+    // It omits WRITING the constructor
+    // and this.state
     persons: [
       { id: 'weq233', name: 'Max', age: 28 },
       { id: 'nregu1', name: 'Manu', age: 29 },
@@ -14,6 +22,15 @@ class App extends Component {
     showPersons : false
   };
 
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps', props);
+    return state;
+  }
+
+  componentDidMount() {
+    console.log('[App.js] componentDidMount');
+  }
+  
   nameChangedHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(personFromState => {
       return personFromState.id === id;
@@ -43,6 +60,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js] render')
     let persons = null;
 
     if (this.state.showPersons) {
