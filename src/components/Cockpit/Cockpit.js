@@ -22,7 +22,6 @@ const cockpit = (props) => {
         }
     });
     
-    const personsLength = props.persons.length;
     const assignedClasses = [];
     let buttonClass = '';
     
@@ -30,11 +29,11 @@ const cockpit = (props) => {
         buttonClass = classes.Red;
     }
     
-    if ( personsLength <= 2 ) {
+    if ( props.personsLength <= 2 ) {
         assignedClasses.push(classes.red);
     }
 
-    if ( personsLength <= 1 ) {
+    if ( props.personsLength <= 1 ) {
         assignedClasses.push(classes.bold);
     }
 
@@ -51,4 +50,4 @@ const cockpit = (props) => {
     );
 };
 
-export default cockpit;
+export default React.memo(cockpit);
