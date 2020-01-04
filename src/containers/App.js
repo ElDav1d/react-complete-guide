@@ -17,7 +17,7 @@ class App extends Component {
     // It omits WRITING the constructor
     // and this.state
     persons: [
-      { id: 'weq233', name: 'Max', age: 28 },
+      { id: 'weq233', name: 'Max', age: "28" },
       { id: 'nregu1', name: 'Manu', age: 29 },
       { id: 'nre654', name: 'Stephanie', age: 26 }
     ],
