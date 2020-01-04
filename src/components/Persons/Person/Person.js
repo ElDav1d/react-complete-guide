@@ -3,6 +3,7 @@ import classes from './Person.css';
 import Auxiliary from '../../../hoc/Auxiliary';
 import withClass from '../../../hoc/withClass';
 import PropTypes from 'prop-types';
+import AuthContext from '../../../context/auth-context'
 
 class Person extends Component {
     constructor() {
@@ -19,18 +20,22 @@ class Person extends Component {
         console.log('[Person.js] rendering...');
         return (            
             <Auxiliary >
-                {this.props.isAuth ? <p>Authenticated!</p> : <p>Please log in</p>}
-                <p onClick={this.props.click}>
-                    I'm {this.props.name} and I'm {this.props.age} years old!
-                </p>
-                <p>{this.props.children}</p>
-                <input
-                    // ref={(inputEl) => {this.inputElement = inputEl}}
-                    ref={this.inputElementRef}
-                    type="text"
-                    onChange={this.props.changed}
-                    value={this.props.name}
-                />
+                <AuthContext.Consumer>
+                    {context =>
+                        context.authenticated ? <p>Authenticated!</p> : <p>Please log in</p>
+                    }
+                </AuthContext.Consumer>
+                    <p onClick={this.props.click}>
+                        I'm {this.props.name} and I'm {this.props.age} years old!
+                    </p>
+                    <p>{this.props.children}</p>
+                    <input
+                        // ref={(inputEl) => {this.inputElement = inputEl}}
+                        ref={this.inputElementRef}
+                        type="text"
+                        onChange={this.props.changed}
+                        value={this.props.name}
+                    />
             </Auxiliary>
         );
     }
